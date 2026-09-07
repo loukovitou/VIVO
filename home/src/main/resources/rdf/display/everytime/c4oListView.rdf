@@ -1,0 +1,10 @@
+<!-- Implementation for this ticket https://git.tib.eu/OSL/VIVO/grobi/grobi-vivo/-/work_items/2 -->
+
+<!-- Registering the List View-->
+<http://purl.org/spar/c4o/hasGlobalCitationFrequency>
+<http://vitro.mannlib.cornell.edu/ontologies/display/1.1#listViewConfigFile>
+"listViewConfig-globalCitationCount.xml" .
+
+<rdf:Description rdf:about="http://purl.org/spar/c4o/hasGlobalCitationFrequency">
+    <display:listViewConfigFile rdf:datatype="http://www.w3.org/2001/XMLSchema#string">listViewConfig-globalCitationCount.xml</display:listViewConfigFile>
+</rdf:Description>
