@@ -33,6 +33,7 @@
             <svg width="100%" id="publicationsChart" onload="renderPublicationsChart()" onresize="renderPublicationsChart()">
             </svg>
 
+            <#-- PUBLICATION GRAPH SETTINGS -->
             <script>
                 var dataUrl = '${urls.base}/visualizationAjax?vis=cumulative_pub_count&uri=${individual.uri?url}';
 
@@ -61,7 +62,7 @@
                             .rangeRound([height, 0]);
 
                     var z = d3.scaleOrdinal()
-                            .range(["#777777", "#1f77b4", "#aec7e8", "#ff7f0e"]);
+                            .range(["#dfd7d5", "#ae3323", "#d4432c", "#ec7b60"]);
 
                     d3.csv(dataUrl, function (d, i, columns) {
                         for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
@@ -144,6 +145,8 @@
                     });
                 }
             </script>
+            <#-- END OF PUBLICATION GRAPH SETTINGS -->
+
 
             <div class="visualization-buttons">
                 <div id="coauthorship_link_container" class="collaboratorship-link-container">
