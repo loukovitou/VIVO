@@ -5,24 +5,28 @@
 
 <#macro showGlobalCitationCount statement>
     
-    <#local citationCount>
+<#local citationCount>
         <#-- hasGlobalCountDate -->
-        <#if statement.countDate?has_content>
-            <em>${statement.countDate!}</em>
-        </#if>
+        <div class="count-date">
+            <#if statement.countDate?has_content>
+                <em>${statement.countDate!}</em>
+            </#if>
+        </div>
 
         <#-- hasGlobalCountValue -->
-        <#if statement.countValue?has_content>
-            <em>${statement.countValue!}</em>
-        <#else>
-            <em>No count value</em>
-        </#if>
+        <div class="count-value">
+            <#if statement.countValue?has_content>
+                <em>${statement.countValue!}</em>
+            </#if>
+        </div>
 
-        <#-- hasGlobalCountSource -->
-        <#if statement.countSource?has_content>
-            <em>${statement.countSource!}</em>
-        </#if>
+        <#-- hasGlobalCountSource -->  
+        <div class="count-source">
+            <#if statement.countSource?has_content>
+                <a href="${profileUrl(statement.uri("countSource"))}">${statement.countSourceName!}</a>
+            </#if>
+        </div>
     </#local>
 
-    ${citationCount} <@dt.yearSpan "${statement.countDate!}" />
+    ${citationCount}
 </#macro>

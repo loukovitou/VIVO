@@ -3,17 +3,17 @@
 
 <list-view-config>
     <query-select>
-        PREFIX biro: &lt;http://purl.org/spar/biro/&gt;
-        PREFIX co: &lt;http://purl.org/co/&gt;
-        PREFIX frbr: &lt;http://purl.org/vocab/frbr/core#&gt;
-        PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-        PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-        PREFIX c4o: &lt;http://purl.org/spar/c4o/&gt;
+        PREFIX biro: <http://purl.org/spar/biro/>
+        PREFIX co: <http://purl.org/co/>
+        PREFIX frbr: <http://purl.org/vocab/frbr/core#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        PREFIX c4o: <http://purl.org/spar/c4o/>
 
     SELECT DISTINCT ?citationCount
         ?countDate
         ?countValue
-        ?countSource      
+        ?countSource ?countSourceName
 
     WHERE {
         ?subject ?property ?citationCount .
@@ -41,6 +41,7 @@
                 ?citationCount a c4o:GlobalCitationCount .
             </precise-subquery>
             ?citationCount c4o:hasGlobalCountSource ?countSource .
+            ?countSource rdfs:label ?countSourceName .
         }
     } ORDER BY DESC(?countDate)
     </query-select>
